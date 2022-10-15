@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JagoPadi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <style>
+      body{
+        font-family: 'Nunito', sans-serif;
+      }
+
+      h1,h2,h3,h4,h5,h6{
+        font-family: 'Quicksand', sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- View Prediction -->
+    <div class="container-fluid text-dark p-5 text-center" style="background-color: ghostwhite;" id="predict">
+      <h2>Klasifikasi Penyakit Daun Padi</h2>
+      <p>Pilih file citra daun padi dan tekan tombol <b>"Prediksi Citra"</b> untuk mengetahui kategori citra</p>
+      <div class="container">
+        <form class="p-3 text-center" action='/', method="post" enctype="multipart/form-data">
+          <input class="form-control" type="file" name="imagefile">
+          <input class="btn btn-secondary mt-3 rounded-pill" type="submit" value="Prediksi Citra">
+        </form>
+
+      </div>
+      
+      {% if prediction %}
+      <img src="{{image}}" alt="" width="250px">
+      <p class="text-center pt-2"><b>Citra daun padi masuk ke dalam kategori {{prediction}}</b></p>
+      {% endif %}
+    </div>
+  </body>
+</html>
